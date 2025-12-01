@@ -23,7 +23,9 @@ export async function GET(req: Request) {
     }
 
     const cacheTimestamp = new Date().toISOString();
-    console.log(`🔄 Fetching events for month ${month} at ${cacheTimestamp}`);
+    
+    //ignore log - for debugging
+    // console.log(`🔄 Fetching events for month ${month} at ${cacheTimestamp}`);
 
     const jwt = await getArenaJWT();
 

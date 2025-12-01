@@ -6,8 +6,8 @@ export async function getArenaJWT(): Promise<string> {
     console.log(`✅ Using cached JWT (${timeLeft} minutes remaining)`);
     return jwtCache.token;
   }
-
-  console.log('🔑 Fetching new JWT from Arena Racing API...');
+  //ignore log - for debugging
+  // console.log('🔑 Fetching new JWT from Arena Racing API...');
 
   try {
     const response = await fetch(process.env.ARENA_AUTH_URL, {

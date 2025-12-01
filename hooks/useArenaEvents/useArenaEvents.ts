@@ -18,18 +18,20 @@ export function useArenaEvents(month: number) {
 
   useEffect(() => {
     requestStartTime.current = Date.now();
-    console.log(`🔄 Requesting month ${month} at`, new Date().toISOString());
+    //ignore log - for debugging
+    // console.log(`🔄 Requesting month ${month} at`, new Date().toISOString());
 
     execute().then(() => {
       if (requestStartTime.current) {
         const duration = Date.now() - requestStartTime.current;
         const fromCache = duration < 100;
 
-        console.log(
-          `✅ Response received in ${duration}ms ${
-            fromCache ? "(likely cached)" : "(fresh fetch)"
-          }`
-        );
+        //ignore log - for debugging
+        // console.log(
+        //   `✅ Response received in ${duration}ms ${
+        //     fromCache ? "(likely cached)" : "(fresh fetch)"
+        //   }`
+        // );
 
         setRequestLog((prev) => [
           ...prev,
