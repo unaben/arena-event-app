@@ -1,0 +1,234 @@
+.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: #1a1a1a;
+}
+
+.error {
+  color: #cc0000;
+  font-weight: bold;
+  text-align: center;
+  padding: 2rem;
+  border: 1px solid #ffcccc;
+  background-color: #ffe5e5;
+  border-radius: 8px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.header h2 {
+  color: #1a1a1a;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.monthSelect {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.monthSelect:hover {
+  border-color: #0070f3;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.content {
+  padding: 1.25rem;
+  flex-grow: 1;
+}
+
+.content h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  color: #0070f3;
+}
+
+.location {
+  color: #666;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.date {
+  font-weight: bold;
+  color: #333;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.details {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #f7f7f7;
+  border-radius: 6px;
+  border-left: 4px solid #0070f3;
+  font-size: 0.9rem;
+}
+
+.details p {
+  margin: 0.25rem 0;
+}
+
+.details strong {
+  color: #333;
+  min-width: 100px;
+  display: inline-block;
+}
+
+.description {
+  margin-top: 1rem;
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/*
+|-----------------------------------------------|
+| 2. DARK MODE STYLES (Wrapped in Media Query)  |
+|-----------------------------------------------|
+*/
+
+/**
+ * @media (prefers-color-scheme: dark)
+ * This query automatically applies the following styles 
+ * when the user has enabled Dark Mode in their OS settings.
+ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --dark-bg-primary: #121212;
+    --dark-bg-secondary: #1e1e1e;
+    --dark-text-primary: #e0e0e0;
+    --dark-text-secondary: #aaaaaa;
+    --dark-border-light: #333333;
+    --dark-card-bg: #212121;
+    --dark-accent-blue: #0070f3;
+  }
+
+  .container {
+    background-color: var(--dark-bg-primary);
+    color: var(--dark-text-primary);
+  }
+
+  .error {
+    color: #ff6666;
+    border: 1px solid #770000;
+    background-color: #330000;
+  }
+
+  .header {
+    border-bottom: 2px solid var(--dark-border-light);
+  }
+
+  .header h2 {
+    color: var(--dark-text-primary);
+  }
+
+  .monthSelect {
+    border: 1px solid #555;
+    background-color: var(--dark-bg-secondary);
+    color: var(--dark-text-primary);
+  }
+
+  .monthSelect:hover {
+    border-color: var(--dark-accent-blue);
+  }
+
+  .card {
+    border: 1px solid var(--dark-border-light);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    background-color: var(--dark-card-bg);
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .image {
+    border-bottom: 1px solid var(--dark-border-light);
+  }
+
+  .content h3 {
+    color: var(--dark-accent-blue);
+  }
+
+  .location {
+    color: var(--dark-text-secondary);
+  }
+
+  .date {
+    color: var(--dark-text-primary);
+  }
+
+  .details {
+    background-color: #2a2a2a;
+    border-left: 4px solid var(--dark-accent-blue);
+  }
+
+  .details strong {
+    color: var(--dark-text-primary);
+  }
+
+  .description {
+    color: var(--dark-text-secondary);
+  }
+}
