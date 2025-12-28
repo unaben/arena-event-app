@@ -17,9 +17,6 @@ export default function ArenaEvents() {
     setSelectedMonth(month);
   };
 
-  if (loading) return <p>Loading Arena Racing events...</p>;
-  if (error) return <p className={styles.error}>Error: {error}</p>;
-
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -44,8 +41,13 @@ export default function ArenaEvents() {
           ))}
         </select>
       </div>
-
-      {!events.length ? (
+      {!loading && !events.length && error && (
+        <p className={styles.error}>Error: {error}</p>
+      )}
+      {!events.length && !error && loading && (
+        <p>Loading Arena Racing events...</p>
+      )}
+      {!error && !loading && !events.length ? (
         <div>
           <p>No events found for this month.</p>
         </div>
